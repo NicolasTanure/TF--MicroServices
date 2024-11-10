@@ -1,10 +1,12 @@
+# Conteúdo local e remoto combinados
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+### Ferramentas ###
 .apt_generated
 .classpath
 .factorypath
@@ -12,8 +14,6 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
-### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
@@ -31,3 +31,22 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Arquivos compilados ###
+*.class
+
+### Arquivos de log ###
+*.log
+
+### Arquivos de pacotes (.jar, .war, etc.) ###
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### Logs de erro de máquina virtual ###
+hs_err_pid*
+replay_pid*
