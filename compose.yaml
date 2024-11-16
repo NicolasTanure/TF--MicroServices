@@ -8,7 +8,7 @@ services:
       - current-network
 
   aplicacao:
-    build: TF--MicroServices
+    build: TF---Projeto-e-Arquitetura-de-Software
     image: aplicacao
     ports:
       - "8000:8000"
