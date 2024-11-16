@@ -1,0 +1,35 @@
+services:
+  nameserver:
+    build: nameserver
+    image: nameserver
+    ports:
+      - "8761:8761"
+    networks:
+      - current-network
+
+  aplicacao:
+    build: TF--MicroServices
+    image: aplicacao
+    ports:
+      - "8000:8000"
+    networks:
+      - current-network
+    depends_on:
+      - nameserver
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://nameserver:8761/eureka
+
+  gateway:
+    build: gateway
+    image: gateway
+    ports:
+      - "8765:8765"
+    networks:
+      - current-network
+    depends_on:
+      - nameserver
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://nameserver:8761/eureka
+      
+networks:
+  current-network:
