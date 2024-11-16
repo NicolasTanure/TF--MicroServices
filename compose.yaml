@@ -30,6 +30,18 @@ services:
       - nameserver
     environment:
       - eureka.client.serviceUrl.defaultZone=http://nameserver:8761/eureka
-      
+
+  asscache:
+    build: asscache
+    image: asscache
+    ports:
+      - "8100"
+    networks:
+      - current-network
+    depends_on:
+      - nameserver
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://nameserver:8761/eureka
+
 networks:
   current-network:
