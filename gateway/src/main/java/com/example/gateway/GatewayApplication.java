@@ -15,7 +15,10 @@ public class GatewayApplication {
     .route("aplicacao", r -> r.path("/aplicacao/**")
       .filters(f -> f.stripPrefix(1))
       .uri("lb://TF"))
-	  .build();
+    .route("asscache", r -> r.path("/asscache/**")
+      .filters(f -> f.stripPrefix(1))
+      .uri("lb://ASSCACHE"))
+	    .build();
     
   }
 
