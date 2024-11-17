@@ -27,8 +27,11 @@ public class AssinaturaClientRepository {
     }
 
     public void removeAssinatura(Long codass){
-        log.info("Assinatura " + codass + " Removida");
-        assinaturas.remove(codass);
+       
+        AssinaturaModel ass = assinaturas.remove(codass);
+        if(ass != null){
+            log.info("Assinatura " + codass + " Removida");
+        }
     }
 
     public AssinaturaModel getAssinatura(Long codass){

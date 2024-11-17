@@ -8,7 +8,7 @@ import com.example.asscache.Repository.AssinaturaClientRepository;
 
 @Component
 public class ResponseService {
-    public static final String QUEUENAME = "conversions.v1.conversion-request.save-history";
+    public static final String QUEUENAME = "#{rabbitMQConfig.QUEUENAME}";
     private AssinaturaClientRepository assinaturaRepository;
 
     @Autowired
