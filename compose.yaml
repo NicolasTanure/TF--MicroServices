@@ -16,8 +16,13 @@ services:
       - current-network
     depends_on:
       - nameserver
+      - rabbitmq
     environment:
       - eureka.client.serviceUrl.defaultZone=http://nameserver:8761/eureka
+      - spring.rabbitmq.host=rabbitmq 
+      - spring.rabbitmq.port=5672 
+      - spring.rabbitmq.username=engsoft2 
+      - spring.rabbitmq.password=engsoft2
 
   gateway:
     build: gateway
@@ -40,8 +45,24 @@ services:
       - current-network
     depends_on:
       - nameserver
+      - rabbitmq
     environment:
       - eureka.client.serviceUrl.defaultZone=http://nameserver:8761/eureka
+      - spring.rabbitmq.host=rabbitmq
+      - spring.rabbitmq.port=5672
+      - spring.rabbitmq.username=engsoft2 
+      - spring.rabbitmq.password=engsoft2
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - current-network
+    environment:
+      - RABBITMQ_DEFAULT_USER=engsoft2
+      - RABBITMQ_DEFAULT_PASS=engsoft2
 
 networks:
   current-network:
